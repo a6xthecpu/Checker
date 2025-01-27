@@ -1,5 +1,5 @@
 public interface CheckerBoard {
-    void moveRight();
+    void moveRight(CheckerPiece s);
 
-    void moveLeft();
+    void moveLeft(CheckerPiece s);
 }
