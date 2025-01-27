@@ -1,4 +1,5 @@
-public class Queen extends CheckerPiece {
+/* public class Queen extends CheckerPiece {
 
     
 }
+*/

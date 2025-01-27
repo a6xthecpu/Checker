@@ -21,7 +21,15 @@ public class CheckerPiece {
     }
 
     public String toString(){
-        return PIECE;
+        if(PIECE.equals("Red"))
+            return "R";
+        else if(PIECE.equals("Black"))
+            return "B";
+        else
+            return " ";
+    }
+        
+ 
 
 
 
@@ -30,4 +38,4 @@ public class CheckerPiece {
 
 
     
-}
+
