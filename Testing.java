@@ -2,9 +2,16 @@ public class Testing{
     public static void main(String[] args){
         Board board = new Board();
         board.showBoard();
-        board.moveRight(board.getboard(1, 7));
-
+        board.moveRight(board.getboard(2,2));
+        board.moveRight(board.getboard(3,3));
         board.showBoard();
+        board.eatLeft(board.getboard(5, 5));
+        board.showBoard();
+
+
+
+
+
 
     }
 }

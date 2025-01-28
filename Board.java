@@ -40,8 +40,8 @@ public class Board implements CheckerBoard{
         row--;    
         else if(s.PIECE.equals("Black"))
         row++;
-        else
-        System.out.println("Invalid move (No color)"); 
+        // else
+        // System.out.println("Invalid move (No color)"); 
         
         col++;
         if(row < 0 || row >= board.length || col < 0 || col >= board[row].length){
@@ -55,7 +55,7 @@ public class Board implements CheckerBoard{
             
         }
         else
-        System.out.println("Invalid move");
+        System.out.println("Invalid move (Piece in way)");
         
         
         
@@ -96,7 +96,91 @@ public class Board implements CheckerBoard{
         return board[row][col];
         
     }
-    
+    public void eatRight(CheckerPiece s){
+        if(s == null){
+            System.out.println("Invalid move (Null)");
+            return;
+        }
+        
+        int row = s.getRow();
+        int col = s.getCol();
+        int assist = 0;
+        if(s.PIECE.equals("Red")){
+        row--;    
+        assist = -1;
+        }
+        else if(s.PIECE.equals("Black")){
+        row++;
+        assist = 1;
+        }
+        // else
+        // System.out.println("Invalid move (No color)"); 
+        
+        col++;
+        if(row < 1 || row >= board.length -2 || col < 1 || col >= board[0].length - 2){
+            System.out.println("Invalid move (Out of bounds)");
+            return;
+        }
+        if(board[row][col] == null){
+            System.out.println("Invalid move (No piece to eat)");
+            return;
+        }
+        if(board[row][col].PIECE.equals(s.PIECE)){
+            System.out.println("Invalid move (Same color)");
+            return;
+        }
+        if(board[row+assist][col+1] != null){
+            System.out.println("Invalid move (Blocked)");
+            return;
+        }
+        board[s.getRow()][s.getCol()] = null;
+        board[row+assist][col+1] = s;
+        s.setIndex(row+assist,col+1);
+        board[row][col] = null;
+        
+    }
+    public void eatLeft(CheckerPiece s){
+        if(s == null){
+            System.out.println("Invalid move (Null)");
+            return;
+        }
+        
+        int row = s.getRow();
+        int col = s.getCol();
+        int assist = 0;
+        if(s.PIECE.equals("Red")){
+        row--;    
+        assist = -1;
+        }
+        else if(s.PIECE.equals("Black")){
+        row++;
+        assist = 1;
+        }
+        // else
+        // System.out.println("Invalid move (No color)"); 
+        
+        col--;
+        if(row < 1 || row >= board.length -2 || col < 1 || col >= board[0].length - 2){
+            System.out.println("Invalid move (Out of bounds)");
+            return;
+        }
+        if(board[row][col] == null){
+            System.out.println("Invalid move (No piece to eat)");
+            return;
+        }
+        if(board[row][col].PIECE.equals(s.PIECE)){
+            System.out.println("Invalid move (Same color)");
+            return;
+        }
+        if(board[row+assist][col-1] != null){
+            System.out.println("Invalid move (Blocked)");
+            return;
+        }
+        board[s.getRow()][s.getCol()] = null;
+        board[row+assist][col-1] = s;
+        s.setIndex(row+assist,col-1);
+        board[row][col] = null; 
+    }
     
     
     
