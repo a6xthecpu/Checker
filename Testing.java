@@ -5,7 +5,7 @@ public class Testing{
         board.moveRight(board.getboard(2,2));
         board.moveRight(board.getboard(3,3));
         board.showBoard();
-        board.eatLeft(board.getboard(5, 5));
+        board.moveLeft(board.getboard(5, 5));
         board.showBoard();
 
 
